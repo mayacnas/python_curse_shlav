@@ -12,7 +12,7 @@ def get_instagram_info(username):
 
   # Scrape their respective data 
   google.scrape()
-  google_post.scrape()
+  #google_post.scrape()
   google_hashtag.scrape()
 
   # print(google.followers)
