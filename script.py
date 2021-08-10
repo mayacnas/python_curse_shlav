@@ -2,13 +2,26 @@ from pymongo import MongoClient
 import json
 import os
 from facebook_scraper import get_posts
+from flask import Flask, render_template, request
 
-def facebook_post(client):
+app = Flask(__name__)
+
+@app.route("/")
+def index():
+    return render_template('index.html')
+
+@app.route('/', methods=['GET','POST'])
+def my_form_post():
+    app_name = request.form['app_name']
+    page = request.form['page']
+    insert(app_name, page)
+    return render_template('index.html')
+
+def facebook_post(client, page):
     """
     this function takes a facebook post from a page requested by the user
     and turns it into json
     """
-    page=input("please enter the page you want to take a post from: ")
     for post in get_posts(page, pages=1):
         facebook_post={
         'username': post['username'],
@@ -33,14 +46,14 @@ def write_to_db(mycollection, json_object):
     x = mycollection.insert_one(data)
     os.remove("data.json")
 
-def main():
+def insert(app_name, page):
     client = MongoClient('mongodb://localhost:27017/')
-    app_name = input('do you want facebook or instagram? ')
     if app_name == 'facebook':
         mydatabase = client['facebook']
         mycollection = mydatabase['posts']
-        json_object = facebook_post(client)
-    write_to_db(mycollection, json_object)    
+        json_object = facebook_post(client, page)
+    write_to_db(mycollection, json_object)
+    return
 
 if __name__ == '__main__':
-    main()
+    app.run(host='0.0.0.0')
