@@ -7,19 +7,15 @@
 <body>
 
 <form method="POST">
-    <input type="submit">
 
 <select name= social_media method="GET" action="/">
     {% for choice_social_media in social_media %}
     <option value= "{{choice_social_media}}" SELECTED>{{choice_social_media}}</option>"
     {% endfor %}
 </select>
+    <input name="text">
+    <input type="submit">
 </form>
-
-
-
-
-
 
 </body>
 </html>
