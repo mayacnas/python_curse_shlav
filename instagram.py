@@ -1,7 +1,7 @@
 from instascrape import *
 from json import dumps, loads
 
-get_instagram_info(username):
+def get_instagram_info(username):
   """
   Get information about specific username from instagram
   """
@@ -24,7 +24,7 @@ get_instagram_info(username):
   returened_info['amount_of_posts'] = google_hashtag.amount_of_posts
   returened_info['followers'] = google.followers
   
-  return dumps(returened_info)
+  return dumps(returened_info, indent=4)
 
 def main():
   # Get username
