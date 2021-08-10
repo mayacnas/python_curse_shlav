@@ -6,7 +6,7 @@ def get_instagram_info(username):
   Get information about specific username from instagram
   """
   # Instantiate the scraper objects 
-  google = Profile(rf'https://www.instagram.com/{username}/')
+  google = Profile(rf"https://www.instagram.com/{username}/")
   # google_post = Post('https://www.instagram.com/p/CG0UU3ylXnv/')
   google_hashtag = Hashtag('https://www.instagram.com/explore/tags/{username}/')
 
