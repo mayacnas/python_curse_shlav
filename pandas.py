@@ -19,7 +19,7 @@ df2 = df.groupby('company').max('price')
 df2['company'] = df2.index
 print(df2[['company', 'price']])
 
-#7
+#7 - amit
 df = pd.read_csv('Automobile_data.csv')
 print(df.groupby(['company'])['average-mileage'].agg(lambda x: x.unique().sum()/x.nunique()))
 
