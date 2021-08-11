@@ -12,6 +12,13 @@ high_val = df.sort_values(by="price", ascending=False)
 high_val = high_val[["company", "price"]]
 print("Highest price:\n", high_val.head(1))
 
+#5 - maya
+read_file = pd.read_excel('C:/Users/User/Automobile_data.xlsx', sheet_name='in')
+read_file.to_csv(r'C:/Users/User/Automobile_data.csv', index = None, header=True)
+df = pd.read_csv(r'C:/Users/User/Automobile_data.csv')
+count = df['company'].value_counts()
+print(count)
+
 #6 - ofir
 import pandas as pd
 df = pd.read_csv('Automobile_data.csv')
