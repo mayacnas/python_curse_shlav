@@ -18,7 +18,7 @@ df2 = df.groupby('company').max('price')
 df2['company'] = df2.index
 print(df2[['company', 'price']])
 
-#9 - ofir
+#8 - ofir
 import pandas as pd
 df = pd.read_csv('Automobile_data.csv')
 print(df.sort_values(by='price', ascending=False))
